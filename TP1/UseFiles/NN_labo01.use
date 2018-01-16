@@ -1,0 +1,83 @@
+model GestionConvoi
+
+-- classes
+
+class Manageur
+operations
+ListeConvoiActif() : Bag(Convoi) = self.autoroutes.convois
+end
+
+class Autoroute
+attributes
+Nom : String
+Numero : Integer
+end
+
+class Conducteur
+attributes
+Nom : String
+Sexe : Integer
+end
+
+class Vehicule
+end
+
+class Convoi
+end
+
+class Camera
+attributes
+Constructeur : String
+Modele : String
+end
+
+class Sonar
+attributes
+Constructeur : String
+Modele : String
+end
+
+-- associations
+
+association  ManageurAutoroute between
+  Manageur[1] role manageur;
+  Autoroute[0..*] role autoroutes;
+end
+
+association  AutorouteConvoi between
+  Autoroute[1] role autoroute;
+  Convoi[0..*] role convois;
+end
+
+association  AutorouteVehicule between
+  Autoroute[0..1] role autoroute;
+  Vehicule[0..*] role vehiculesLibres;
+end
+
+association convoiVehicules between
+  Convoi[0..1] role convoi;
+  Vehicule[1..*] role vehicules;
+end
+
+association convoiLeader between
+  Vehicule[1] role vehiculeLeader;
+  Convoi[0..1] role convoiLeader;
+end
+
+association vehiculeConducteur between
+  Vehicule[0..1] role vehicule;
+  Conducteur[0..1] role conducteur;
+end
+
+association vehiculeCamera between
+  Vehicule[1] role vehicule;
+  Camera[0..*] role camera;
+end
+
+association vehiculeSonar between
+  Vehicule[1] role vehicule;
+  Sonar[0..*] role sonar;
+end
+
+
+-- constraints
