@@ -1,6 +1,8 @@
 model GestionConvoi
 
--- classes
+--
+-- C L A S S E S
+--
 
 class Manageur
 operations
@@ -20,6 +22,8 @@ Sexe : Integer
 end
 
 class Vehicule
+attributes
+Direction : String
 end
 
 class Convoi
@@ -37,7 +41,9 @@ Constructeur : String
 Modele : String
 end
 
--- associations
+--
+-- A S S O C I A T I O N S
+--
 
 association  ManageurAutoroute between
   Manageur[1] role manageur;
@@ -80,4 +86,51 @@ association vehiculeSonar between
 end
 
 
--- constraints
+--
+-- C O N S T R A I N T S
+--
+
+constraints
+
+-- VehiculeAUnConducteurOuUnCapteur:
+-- Un vehicule doit avoir un conducteur ou bien au moins un capteur (radar, camera, etc..).
+
+context i:Vehicule
+  inv VehiculeAUnConducteurOuUnCapteur:
+         i.conducteur->notEmpty
+      or i.sonar->notEmpty
+      or i.camera->notEmpty
+
+
+-- ConvoiAUnConducteurMinimum:
+-- Un convoi doit avoir au moins un conducteur dans les vehicules du convoi.
+
+context i:Convoi
+  inv ConvoiAUnConducteurMinimum:
+         i.vehicules->exists(e|e.conducteur->notEmpty)
+      or i.vehiculeLeader.conducteur->notEmpty
+
+
+-- LeaderIsInVehiculesList:
+-- Le leader doit etre present dans la liste de vehicule.
+
+context i:Convoi
+  inv LeaderIsInVehiculesList:
+         i.vehicules->select(v|v = i.vehiculeLeader)->notEmpty
+
+
+-- ConvoiADesVehiculesDansLaMemeDirection:
+-- Un convoi ne contient que des vehicules allant dans la meme direction.
+
+context i:Convoi
+  inv ConvoiADesVehiculesDansLaMemeDirection:
+         i.vehicules.Direction->flatten()->asSet()->size() = 1
+
+
+-- VehiculeAUneDirectionValide:
+-- Un vehicule a toujours une direction valide.
+
+context i:Vehicule
+  inv VehiculeAUneDirectionValide:
+         Set {i.Direction}->intersection(Set {'A','B'})->notEmpty
+
