@@ -6,13 +6,64 @@ model GestionConvoi
 
 class Manageur
 operations
-ListeConvoiActif() : Bag(Convoi) = self.autoroutes.convois
+    -- Un convoi est actil si il contient au moins un vehivule.
+    -- Bien que notre architecture defini un convoi comme un
+    -- convoi necessairement actif, voici a quoi aurais ressembler
+    -- une requete plus complexe
+    listeConvoisActifs() : Set(Convoi) = self.autoroutes.convois->flatten()->select(c | c.vehicules->size() > 1)->asSet()
 end
 
 class Autoroute
 attributes
 Nom : String
 Numero : Integer
+
+operations
+    -- Dissout un convoi et reassigne la totalite de ses voitures directement sur l'autoroute
+    -- On ne peux dissoudre que les convoi present sur l'autoroute faisant l'appel
+    dissoudre(c:Convoi) begin
+        for v in c.vehicules do
+            insert (c.autoroute, v) into AutorouteVehicule;
+        end;
+        delete (c.autoroute, c) from AutorouteConvoi;
+        destroy c
+    end
+    pre: c.autoroute = self
+    post: c = Undefined
+
+    -- Cree et ajoute un convoi sur l'autoroute
+    addConvoi(vehicules: Set(Vehicule), leader: Vehicule) begin
+        declare c : Convoi;
+        c := new Convoi;
+        insert (self, c) into AutorouteConvoi;
+        for v in vehicules do
+            insert (c, v) into convoiVehicules;
+            delete (self, v) from AutorouteVehicule;
+        end;
+        insert (leader,c) into convoiLeader;
+    end
+
+    -- Fusionne deux convoi en un seul (met le contenu du deuxieme dans le premier)
+    fusionConvoi(convoi1: Convoi, convoi2: Convoi) begin
+        for v in convoi2.vehicules do
+            insert (convoi1, v) into convoiVehicules;
+            delete (convoi2, v) from convoiVehicules;
+        end;
+        delete (convoi2.vehiculeLeader, convoi2) from convoiLeader;
+        destroy convoi2;
+    end
+
+    -- Split un convoi en 2
+    splitConvoi(convoi: Convoi, vehicules: Set(Vehicule), leader: Vehicule) begin
+        declare c : Convoi;
+        c := new Convoi;
+        insert (self, c) into AutorouteConvoi;
+        for v in vehicules do
+            insert (c, v) into convoiVehicules;
+            delete (convoi, v) from convoiVehicules;
+        end;
+        insert (leader, c) into convoiLeader;
+    end
 end
 
 class Conducteur
@@ -24,9 +75,47 @@ end
 class Vehicule
 attributes
 Direction : String
+
+operations
+    -- Quitte le convoi
+    leaveConvoi() begin
+        self.convoi.removeVehicule(self)
+    end
+
+    -- Rejoint un convoi
+    joinConvoi(convoi: Convoi) begin
+        convoi.addVehicule(self)
+    end
 end
 
 class Convoi
+operations
+    -- Change le leader
+    setLeader(leader: Vehicule) begin
+        delete (self.vehiculeLeader, self) from convoiLeader;
+        insert (leader, self) into convoiLeader;
+    end
+    pre : self.vehicules->includes(leader)
+    post : self.vehiculeLeader->includes(leader)
+
+    -- Enleve un vehicule du convoi
+    removeVehicule(vehicule: Vehicule) begin
+        delete (self, vehicule) from convoiVehicules;
+        insert (self.autoroute, vehicule) into AutorouteVehicule;
+    end
+    pre : self.vehicules->includes(vehicule)
+    pre : self.vehiculeLeader->excludes(vehicule)
+    post : self.vehicules->excludes(vehicule)
+
+    -- Ajoute un vehicule au convoi
+    addVehicule(vehicule: Vehicule) begin
+        insert (self, vehicule) into convoiVehicules;
+        delete (self.autoroute, vehicule) from AutorouteVehicule;
+    end
+    pre : self.vehicules->excludes(vehicule)
+    pre : self.autoroute = vehicule.autoroute
+    pre : vehicule.convoi = Undefined
+    post : self.vehicules->includes(vehicule)
 end
 
 class Camera
@@ -133,4 +222,3 @@ context i:Convoi
 context i:Vehicule
   inv VehiculeAUneDirectionValide:
          Set {i.Direction}->intersection(Set {'A','B'})->notEmpty
-
