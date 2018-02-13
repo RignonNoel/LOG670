@@ -23,6 +23,8 @@ context i:Vehicule
 
 ##### Preuve d'indépendance
 
+Dans cette preuve `Vehicule3` n'a ni condicteur ni capteur.
+
 ![Preuve_independance](screenshots/B-VehiculeAUnConducteurOuUnCapteur.png)
 
 ![Preuve_independance_table](screenshots/B-VehiculeAUnConducteurOuUnCapteur-table.png)
@@ -49,6 +51,8 @@ context i:Convoi
 
 ##### Preuve d'indépendance
 
+Dans cette preuve `Convoi1` n'a aucun conducteur.
+
 ![Preuve_independance](screenshots/B-ConvoiAUnConducteurMinimum.png)
 
 ![Preuve_independance_table](screenshots/B-ConvoiAUnConducteurMinimum-table.png)
@@ -70,6 +74,8 @@ context i:Convoi
 ```
 
 ##### Preuve d'indépendance
+
+Dans cette preuve `Convoi2` n'a pas de leader.
 
 ![Preuve_independance](screenshots/B-LeaderIsInVehiculesList.png)
 
@@ -93,6 +99,8 @@ context i:Convoi
 
 ##### Preuve d'indépendance
 
+Dans cette preuve `Convoi1` contient `Vehicule1` allant en direction de `A` et `Vehicule2` allant en direction de `B`.
+
 ![Preuve_independance](screenshots/B-ConvoiADesVehiculesDansLaMemeDirection.png)
 
 ![Preuve_independance_table](screenshots/B-ConvoiADesVehiculesDansLaMemeDirection-table.png)
@@ -114,6 +122,8 @@ context i:Vehicule
 ```
 
 ##### Preuve d'indépendance
+
+Dans cette preuve `Vehicule3` et `Vehicule4` vont en direction de `C`, ce qui est une direction invalide.
 
 ![Preuve_independance](screenshots/B-VehiculeAUneDirectionValide.png)
 
@@ -139,6 +149,8 @@ context i:Vehicule
 ```
 
 ##### Preuve d'indépendance
+
+Dans cette preuve `Vehicule1` et sur l'auroute `A1` **ET** dans `Convoi`, or, il est impossible pour un vehicule d'etre considerer comme libre tout en etant dans un convoi.
 
 ![Preuve_independance](screenshots/B-VehiculeEstSurUneAutorouteOuDansUnConvoi.png)
 
