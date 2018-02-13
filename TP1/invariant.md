@@ -102,7 +102,7 @@ context i:Convoi
 
 ##### Explication
 
-Cet invariant permet de verigier que tout les vehicules ont une direction et que cette derniere est valide (il n'existe que deux sens sur une autoroute).
+Cet invariant permet de verifier que tout les vehicules ont une direction et que cette derniere est valide (il n'existe que deux sens sur une autoroute).
 
 ```
 -- VehiculeAUneDirectionValide:
@@ -118,3 +118,28 @@ context i:Vehicule
 ![Preuve_independance](screenshots/B-VehiculeAUneDirectionValide.png)
 
 ![Preuve_independance_table](screenshots/B-VehiculeAUneDirectionValide-table.png)
+
+
+## VehiculeEstSurUneAutorouteOuDansUnConvoi
+
+##### Explication
+
+Cet invariant permet de verifier que tout les vehicules sont soit sur une autoroute soit dans un convoi, mais pas les deux en meme temps.
+
+```
+-- VehiculeEstSurUneAutorouteOuDansUnConvoi:
+-- Un vehicule est soit dans un convoi soit sur une autoroute mais pas les deux
+ 
+context i:Vehicule
+    inv VehiculeEstSurUneAutorouteOuDansUnConvoi:
+        if i.autoroute->notEmpty
+        then i.convoi = Undefined
+        else i.convoi->notEmpty
+        endif
+```
+
+##### Preuve d'indépendance
+
+![Preuve_independance](screenshots/B-VehiculeEstSurUneAutorouteOuDansUnConvoi.png)
+
+![Preuve_independance_table](screenshots/B-VehiculeEstSurUneAutorouteOuDansUnConvoi-table.png)
