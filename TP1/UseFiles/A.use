@@ -222,3 +222,13 @@ context i:Convoi
 context i:Vehicule
   inv VehiculeAUneDirectionValide:
          Set {i.Direction}->intersection(Set {'A','B'})->notEmpty
+
+-- VehiculeEstSurUneAutorouteOuDansUnConvoi:
+-- Un vehicule est soit dans un convoi soit sur une autoroute mais pas les deux
+
+context i:Vehicule
+    inv VehiculeEstSurUneAutorouteOuDansUnConvoi:
+        if i.autoroute->notEmpty
+        then i.convoi = Undefined
+        else i.convoi->notEmpty
+        endif
