@@ -12,7 +12,7 @@
 !insert (A1, Convoi1) into AutorouteConvoi
 
 !create Convoi2 : Convoi
-!insert (A1, Convoi1) into AutorouteConvoi
+!insert (A1, Convoi2) into AutorouteConvoi
 
 !create Vehicule1 : Vehicule
 !set Vehicule1.Direction := 'A'
@@ -26,4 +26,4 @@
 !insert (Convoi2, Vehicule2) into convoiVehicules
 !insert (Vehicule2, Conducteur2) into vehiculeConducteur
 
-!Vehicule2.leaveConvoi(Convoi1)
+!Vehicule2.leaveConvoi()
