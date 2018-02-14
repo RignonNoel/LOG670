@@ -22,4 +22,4 @@
 !insert (Convoi1, Vehicule2) into convoiVehicules
 !insert (Vehicule2, Conducteur2) into vehiculeConducteur
 
-!Vehicule2.leaveConvoi(Convoi1)
+!Vehicule2.leaveConvoi()

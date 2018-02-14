@@ -19,7 +19,7 @@
 !insert (A1, Convoi1) into AutorouteConvoi
 
 !create Convoi2 : Convoi
-!insert (A2, Convoi1) into AutorouteConvoi
+!insert (A2, Convoi2) into AutorouteConvoi
 
 !create Vehicule1 : Vehicule
 !set Vehicule1.Direction := 'A'
