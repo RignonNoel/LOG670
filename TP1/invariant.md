@@ -12,7 +12,7 @@ La logique est assez simple à comprendre puisqu'elle consiste en plusieurs **or
  
 ```
 -- VehiculeAUnConducteurOuUnCapteur:
--- Un vehicule doit avoir un conducteur ou bien au moins un capteur (radar, camera, etc..).
+-- Un véhicule doit avoir un conducteur ou bien au moins un capteur (radar, camera, etc..).
  
 context i:Vehicule
     inv VehiculeAUnConducteurOuUnCapteur:
@@ -23,7 +23,7 @@ context i:Vehicule
 
 ##### Preuve d'indépendance
 
-Dans cette preuve `Vehicule3` n'a ni condicteur ni capteur.
+Dans cette preuve `Vehicule3` n'a ni conducteur ni capteur.
 
 ![Preuve_independance](screenshots/B-VehiculeAUnConducteurOuUnCapteur.png)
 
@@ -36,11 +36,11 @@ Dans cette preuve `Vehicule3` n'a ni condicteur ni capteur.
 
 Cet invariant permet de vérifier que chaque convoi dispose d'au minimum **un** conducteur, peu importe sa position dans le convoi.
 
-Au niveau de la logique il suffit de verifier qu'il existe au moins un conducteur dans la liste de vehicule du convoi ou dans le vehicule leader.
+Au niveau de la logique, il suffit de vérifier qu'il existe au moins un conducteur dans la liste de véhicule du convoi ou dans le véhicule leader.
 
 ```
 -- ConvoiAUnConducteurMinimum:
--- Un convoi doit avoir au moins un conducteur dans les vehicules du convoi.
+-- Un convoi doit avoir au moins un conducteur dans les véhicules du convoi.
  
 context i:Convoi
     inv ConvoiAUnConducteurMinimum:
@@ -62,11 +62,11 @@ Dans cette preuve `Convoi1` n'a aucun conducteur.
 
 ##### Explication
 
-Cet invariant permet de vérifier que le vehicule leader de chaque convoi est **aussi** present dans la liste des vehicules en faisant parties.
+Cet invariant permet de vérifier que le véhicule leader de chaque convoi est **aussi** présent dans la liste des véhicules en faisant partie.
 
 ```
 -- LeaderIsInVehiculesList:
--- Le leader doit etre present dans la liste de vehicule.
+-- Le leader doit être présent dans la liste de véhicule.
  
 context i:Convoi
     inv LeaderIsInVehiculesList:
@@ -85,12 +85,12 @@ Dans cette preuve `Convoi2` n'a pas de leader.
 
 ##### Explication
 
-Cet invariant permet de vérifier que les convois ne comportent **QUE** des vehicules allant dans la meme direction.
+Cet invariant permet de vérifier que les convois ne comportent **QUE** des véhicules allant dans la même direction.
 
 
 ```
 -- ConvoiADesVehiculesDansLaMemeDirection:
--- Un convoi ne contient que des vehicules allant dans la meme direction.
+-- Un convoi ne contient que des véhicules allant dans la même direction.
  
 context i:Convoi
     inv ConvoiADesVehiculesDansLaMemeDirection:
@@ -110,11 +110,11 @@ Dans cette preuve `Convoi1` contient `Vehicule1` allant en direction de `A` et `
 
 ##### Explication
 
-Cet invariant permet de verifier que tout les vehicules ont une direction et que cette derniere est valide (il n'existe que deux sens sur une autoroute).
+Cet invariant permet de vérifier que tous les véhicules ont une direction et que cette dernière est valide (il n'existe que deux sens sur une autoroute).
 
 ```
 -- VehiculeAUneDirectionValide:
--- Un vehicule a toujours une direction valide.
+-- Un véhicule a toujours une direction valide.
  
 context i:Vehicule
     inv VehiculeAUneDirectionValide:
@@ -134,11 +134,11 @@ Dans cette preuve `Vehicule3` et `Vehicule4` vont en direction de `C`, ce qui es
 
 ##### Explication
 
-Cet invariant permet de verifier que tout les vehicules sont soit sur une autoroute soit dans un convoi, mais pas les deux en meme temps.
+Cet invariant permet de vérifier que tous les véhicules sont soit sur une autoroute soit dans un convoi, mais pas les deux en même temps.
 
 ```
 -- VehiculeEstSurUneAutorouteOuDansUnConvoi:
--- Un vehicule est soit dans un convoi soit sur une autoroute mais pas les deux
+-- Un véhicule est soit dans un convoi soit sur une autoroute, mais pas les deux
  
 context i:Vehicule
     inv VehiculeEstSurUneAutorouteOuDansUnConvoi:
@@ -150,7 +150,7 @@ context i:Vehicule
 
 ##### Preuve d'indépendance
 
-Dans cette preuve `Vehicule1` et sur l'auroute `A1` **ET** dans `Convoi`, or, il est impossible pour un vehicule d'etre considerer comme libre tout en etant dans un convoi.
+Dans cette preuve `Vehicule1` et sur l'autoroute `A1` **ET** dans `Convoi`, or, il est impossible pour un véhicule d'être considéré comme libre tout en étant dans un convoi.
 
 ![Preuve_independance](screenshots/B-VehiculeEstSurUneAutorouteOuDansUnConvoi.png)
 
