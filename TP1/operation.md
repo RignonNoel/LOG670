@@ -6,8 +6,9 @@
 
 ##### Explication
 
-Dissout un convoi et reassigne la totalite de ses voitures directement sur l'autoroute
-On ne peux dissoudre que les convoi present sur l'autoroute faisant l'appel
+Dissout un convoi et réassigne la totalité de ses voitures directement sur l’autoroute.
+
+On ne peut dissoudre que les convois présents sur l’autoroute faisant l’appel.
 
 ```
 dissoudre(c:Convoi) begin
@@ -27,7 +28,7 @@ post: c = Undefined
 
 ##### Explication
 
-Cree et ajoute un convoi sur l'autoroute.
+Crée et ajoute un convoi sur l’autoroute.
 
 ```
 addConvoi(vehicules: Set(Vehicule), leader: Vehicule) begin
@@ -61,7 +62,7 @@ post: leader.convoiLeader.autoroute->flatten()->asSet()->includes(self)
 
 ##### Explication
 
-Fusionne deux convoi en un seul (met le contenu du deuxieme dans le premier).
+Fusionne deux convois en un seul (mets le contenu du deuxième dans le premier).
 
 ```
 fusionConvoi(convoi1: Convoi, convoi2: Convoi) begin
@@ -123,7 +124,7 @@ post: convoi.vehicules->select(v|vehicules->includes(v))->isEmpty
 
 ##### Explication
 
-Le vehicule quitte le convoi.
+Le véhicule quitte le convoi.
 
 ```
 leaveConvoi() begin
@@ -135,7 +136,7 @@ end
 
 ##### Explication
 
-Le vehicule rejoint un convoi.
+Le véhicule rejoint un convoi.
 
 ```
 joinConvoi(convoi: Convoi) begin
@@ -167,7 +168,7 @@ post : self.vehiculeLeader->includes(leader)
 
 ##### Explication
 
-Enleve un vehicule du convoi.
+Enlève un véhicule du convoi.
 
 ```
 removeVehicule(vehicule: Vehicule) begin
@@ -186,7 +187,7 @@ post : self.vehicules->excludes(vehicule)
 
 ##### Explication
 
-Ajoute un vehicule au convoi.
+Ajoute un véhicule au convoi.
 
 ```
 addVehicule(vehicule: Vehicule) begin
