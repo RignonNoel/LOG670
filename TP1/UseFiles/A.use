@@ -42,11 +42,16 @@ operations
         end;
         insert (leader,c) into convoiLeader;
     end
-    -- todo: PRE : Check all vehicules are in this autoroute
-    -- todo: PRE : Check all vehicules are in the same direction
-    -- todo: POST : Check the leader is good
-    -- todo: POST : Check the list of vehicules is good (check leader is in it)
-    -- todo: POST : Check the autoroute of the convoi is good
+    -- PRE : Verifie que tout les vehicules sont bien sur cette autoroute
+    pre: vehicules->select(v|v.autoroute = self)->size() = vehicules->asSet()->size()
+    -- PRE : Verifie que tout les vehicules sont dans la meme direction
+    pre: vehicules.Direction->flatten()->asSet()->size() = 1
+    -- PRE : Verifie si le leader est bien dans la liste de vehicule en attribut (verification des parametres)
+    pre: vehicules->select(v|v = leader)->size() = 1
+    -- POST : Verifie si la liste de vehicule dans le convoi est bonne
+    post: leader.convoiLeader.vehicules->flatten()->asSet() = vehicules
+    -- POST : Verifie que le nouveau convoi est bien sur cette autoroute
+    post: leader.convoiLeader.autoroute->flatten()->asSet()->includes(self)
 
     -- Fusionne deux convoi en un seul (met le contenu du deuxieme dans le premier)
     fusionConvoi(convoi1: Convoi, convoi2: Convoi) begin
@@ -57,10 +62,12 @@ operations
         delete (convoi2.vehiculeLeader, convoi2) from convoiLeader;
         destroy convoi2;
     end
-    -- todo: PRE : check convoi are on the same autoroute
-    -- todo: PRE : check convoi goes on the same direction (A or B)
-    -- todo: POST : Check the new leader is the leader of the first convoi
-    -- todo: POST : Check the list of vehicules
+    -- PRE : Verifie si les deux convois sont bien sur la meme autoroute
+    pre: convoi1.autoroute = convoi2.autoroute
+    -- PRE : Verifie que les convois sont bien sur cette autoroute (on sait deja qu'ils sont sur la meme)
+    pre: convoi1.autoroute->includes(self)
+    -- PRE : Verifie que les deux convois vont dans la meme direction
+    pre: convoi1.vehicules.Direction->flatten()->asSet() = convoi2.vehicules.Direction->flatten()->asSet()
 
     -- Split un convoi en 2
     splitConvoi(convoi: Convoi, vehicules: Set(Vehicule), leader: Vehicule) begin
@@ -73,12 +80,18 @@ operations
         end;
         insert (leader, c) into convoiLeader;
     end
-    -- todo: PRE : Check all vehicules of the list given in params are in the convoi
-    -- todo: PRE : Check if the leader is in the convoi's vehicules
-    -- todo: PRE : Check the leader IS NOT the leader of the actual convoi
-    -- todo: POST : Check the new convoi have the list of vehicule
-    -- todo: POST : Check the leader of the new convoi
-    -- todo: POST : Check the old convoi do not have a vehicule of the list
+    -- PRE : Verifie que le convoi est bien sur cette autoroute
+    pre: convoi.autoroute->includes(self)
+    -- PRE : Verifie que tout les vehicules de la liste offerte en parametre sont bien dans le convoi
+    pre: vehicules->select(v|v.convoi = convoi)->flatten()->size() = vehicules->asSet()->size()
+    -- PRE : Verifie que le leader est dans la liste de vehicule offert en parametre
+    pre: vehicules->includes(leader)
+    -- PRE : Verifie que le leader du nouveau convoi n'est pas le meme que le convoi actuel
+    pre: convoi.vehiculeLeader->excludes(leader)
+    -- POST : Verifie que le nouveau convoi comporte bien la bonne liste de vehicule
+    post: leader.convoiLeader.vehicules->flatten()->asSet() = vehicules
+    -- POST : Verifie que le convoi de base de contient plus aucune des voitures offerte en parametre
+    post: convoi.vehicules->select(v|vehicules->includes(v))->isEmpty
 end
 
 class Conducteur
