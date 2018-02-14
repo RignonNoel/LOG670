@@ -124,6 +124,7 @@ operations
         insert (leader, self) into convoiLeader;
     end
     pre : self.vehicules->includes(leader)
+	pre : self.vehiculeLeader->excludes(leader)
     post : self.vehiculeLeader->includes(leader)
 
     -- Enleve un vehicule du convoi
