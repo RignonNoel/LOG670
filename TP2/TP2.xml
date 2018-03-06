@@ -1,25 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE nta PUBLIC '-//Uppaal Team//DTD Flat System 1.1//EN' 'http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd'><nta><declaration>// Place global declarations here.
-int reqA;
-int reqB;
-int validA;
-int validB;
+const int N = 3;
+typedef int[0,N-1] id_t;
+
+int reqOrderA[N];
+int reqOrderB[N];
+
+int reqOrderALen;
+int reqOrderBLen;
+
+int validA[N];
+int validB[N];
 int last;
 int camionSurPont;
-chan entreA, entreB, sortieA, sortieB, empty;
 
-</declaration><template><name x="5" y="5">CAA</name><declaration>// Place local declarations here.
-int nbCamion;
-</declaration><location id="id0" x="-312" y="-168"><name x="-322" y="-198">Stop</name></location><location id="id1" x="-96" y="24"><name x="-56" y="0">SurPont</name></location><location id="id2" x="-96" y="-168"><name x="-64" y="-192">EnAttente</name></location><location id="id3" x="-576" y="-168"><name x="-608" y="-208">EnTransit</name></location><init ref="id3"/><transition><source ref="id0"/><target ref="id2"/><label kind="assignment" x="-224" y="-192">reqA:=1</label></transition><transition><source ref="id3"/><target ref="id0"/><label kind="assignment" x="-496" y="-192">nbCamion := 10</label></transition><transition><source ref="id1"/><target ref="id3"/><label kind="synchronisation" x="-408" y="-64">sortieA?</label></transition><transition><source ref="id2"/><target ref="id1"/><label kind="guard" x="-64" y="-96">validA==1</label><label kind="synchronisation" x="-64" y="-72">entreA!</label><label kind="assignment" x="-64" y="-48">camionSurPont :=nbCamion</label></transition></template><template><name>CAB</name><declaration>// Place local declarations here.
-int nbCamion;
-</declaration><location id="id4" x="-400" y="-336"><name x="-410" y="-366">Stop</name></location><location id="id5" x="-184" y="-144"><name x="-144" y="-168">SurPont</name></location><location id="id6" x="-184" y="-336"><name x="-152" y="-360">EnAttente</name></location><location id="id7" x="-664" y="-336"><name x="-696" y="-376">EnTransit</name></location><init ref="id7"/><transition><source ref="id4"/><target ref="id6"/><label kind="assignment" x="-312" y="-360">reqB:=1</label></transition><transition><source ref="id7"/><target ref="id4"/><label kind="assignment" x="-584" y="-360">nbCamion := 3</label></transition><transition><source ref="id5"/><target ref="id7"/><label kind="synchronisation" x="-496" y="-232">sortieB?</label></transition><transition><source ref="id6"/><target ref="id5"/><label kind="guard" x="-152" y="-264">validB==1</label><label kind="synchronisation" x="-152" y="-240">entreB!</label><label kind="assignment" x="-152" y="-216">camionSurPont :=nbCamion</label></transition></template><template><name>CTRLP</name><location id="id8" x="-240" y="-224"></location><location id="id9" x="-256" y="240"></location><location id="id10" x="32" y="240"></location><location id="id11" x="120" y="-224"></location><location id="id12" x="64" y="112"></location><location id="id13" x="72" y="-96"></location><location id="id14" x="-80" y="8"></location><location id="id15" x="-504" y="24"><name x="-512" y="-8">enAttente</name></location><init ref="id15"/><transition><source ref="id10"/><target ref="id9"/><label kind="synchronisation" x="-144" y="216">empty?</label></transition><transition><source ref="id9"/><target ref="id15"/><label kind="synchronisation" x="-440" y="137">sortieB!</label><label kind="assignment" x="-440" y="152">validB:=0</label></transition><transition><source ref="id11"/><target ref="id8"/><label kind="synchronisation" x="-104" y="-256">empty?</label></transition><transition><source ref="id8"/><target ref="id15"/><label kind="synchronisation" x="-432" y="-152">sortieA!</label><label kind="assignment" x="-432" y="-136">validA:=0</label></transition><transition><source ref="id12"/><target ref="id10"/><label kind="assignment" x="80" y="152">validB:=1,
-reqB:=0,
-last:=1</label></transition><transition><source ref="id13"/><target ref="id11"/><label kind="assignment" x="128" y="-176">validA:=1,
-reqA:=0,
-last:=0</label></transition><transition><source ref="id14"/><target ref="id12"/><label kind="guard" x="0" y="40">last==0</label></transition><transition><source ref="id14"/><target ref="id13"/><label kind="guard" x="0" y="-40">last==1</label></transition><transition><source ref="id15"/><target ref="id12"/><label kind="guard" x="-256" y="40">reqA==0 &amp;&amp; reqB==1</label></transition><transition><source ref="id15"/><target ref="id13"/><label kind="guard" x="-248" y="-80">reqA==1 &amp;&amp; reqB==0</label></transition><transition><source ref="id15"/><target ref="id14"/><label kind="guard" x="-256" y="-16">reqA==1 &amp;&amp; reqB==1</label></transition></template><template><name>P</name><declaration>int Time;</declaration><location id="id16" x="-400" y="-24"><name x="-424" y="-64">EnAttente</name></location><location id="id17" x="-624" y="-88"></location><location id="id18" x="-48" y="-48"><name x="-58" y="-78">Reseting</name></location><location id="id19" x="-280" y="-96"></location><init ref="id16"/><transition><source ref="id17"/><target ref="id16"/><label kind="synchronisation" x="-512" y="-64">empty!</label><nail x="-488" y="-24"/></transition><transition><source ref="id19"/><target ref="id17"/><label kind="guard" x="-568" y="-168">Time &gt; camionSurPont</label><nail x="-488" y="-144"/></transition><transition><source ref="id16"/><target ref="id18"/><label kind="synchronisation" x="-224" y="-16">entreB?</label><nail x="-192" y="16"/></transition><transition><source ref="id18"/><target ref="id19"/><label kind="assignment" x="-176" y="-136">Time:=0</label><nail x="-144" y="-104"/></transition><transition><source ref="id16"/><target ref="id18"/><label kind="synchronisation" x="-232" y="-56">entreA?</label><nail x="-160" y="-40"/></transition><transition><source ref="id19"/><target ref="id19"/><label kind="assignment" x="-360" y="-232">Time++</label><nail x="-388" y="-208"/><nail x="-284" y="-208"/></transition></template><system>// Place template instantiations here.
-DirectionA = CAA();
-DirectionB = CAB();
+chan 
+reqA[N],
+reqB[N],
+entreA[N], 
+entreB[N],
+sortieA[N], 
+sortieB[N],
+empty;
+
+</declaration><template><name x="5" y="5">CAA</name><parameter>int nbCamion, int index</parameter><declaration>// Place local declarations here.
+
+</declaration><location id="id0" x="-96" y="24"><name x="-56" y="0">SurPont</name></location><location id="id1" x="-96" y="-168"><name x="-64" y="-192">EnAttente</name></location><location id="id2" x="-576" y="-168"><name x="-608" y="-208">EnTransit</name></location><init ref="id2"/><transition><source ref="id2"/><target ref="id1"/><label kind="synchronisation" x="-248" y="-200">reqA[index]!</label></transition><transition><source ref="id0"/><target ref="id2"/><label kind="synchronisation" x="-408" y="-64">sortieA[index]?</label></transition><transition><source ref="id1"/><target ref="id0"/><label kind="guard" x="-64" y="-96">validA[index]==1</label><label kind="synchronisation" x="-64" y="-72">entreA[index]!</label><label kind="assignment" x="-64" y="-48">camionSurPont :=nbCamion</label></transition></template><template><name>CAB</name><parameter>int nbCamion, int index</parameter><declaration>// Place local declarations here.</declaration><location id="id3" x="-184" y="-144"><name x="-144" y="-168">SurPont</name></location><location id="id4" x="-184" y="-336"><name x="-152" y="-360">EnAttente</name></location><location id="id5" x="-664" y="-336"><name x="-696" y="-376">EnTransit</name></location><init ref="id5"/><transition><source ref="id5"/><target ref="id4"/><label kind="synchronisation" x="-344" y="-360">reqB[index]!</label></transition><transition><source ref="id3"/><target ref="id5"/><label kind="synchronisation" x="-496" y="-232">sortieB[index]?</label></transition><transition><source ref="id4"/><target ref="id3"/><label kind="guard" x="-152" y="-264">validB[index]==1</label><label kind="synchronisation" x="-152" y="-240">entreB[index]!</label><label kind="assignment" x="-152" y="-216">camionSurPont :=nbCamion</label></transition></template><template><name>CTRLP</name><declaration>int id;
+
+
+bool AnyRequest(int array[N])
+{
+	int i = 0;
+    	while (i &lt; N)
+    	{
+		if(array[i] != 0)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+// Remove the front element of the queue
+int dequeueA()
+{
+
+	int value = reqOrderA[0];
+
+        int i = 0;
+        reqOrderALen -= 1;
+        while (i &lt; reqOrderALen)
+        {
+                reqOrderA[i] = reqOrderA[i + 1];
+                i++;
+        }
+        reqOrderA[i] = 0;
+
+	return value;
+}
+
+// Remove the front element of the queue
+int dequeueB()
+{
+	int value = reqOrderB[0];
+
+        int i = 0;
+        reqOrderBLen -= 1;
+        while (i &lt; reqOrderBLen)
+        {
+                reqOrderB[i] = reqOrderB[i + 1];
+                i++;
+        }
+        reqOrderB[i] = 0;
+	return value;
+}
+
+void engageA()
+{
+	id = dequeueA();
+	validA[id] = 1;	
+	last = 0;
+}
+
+void engageB()
+{
+	id = dequeueB();
+	validB[id] = 1;	
+	last = 1;
+}
+
+
+
+
+
+
+</declaration><location id="id6" x="-240" y="-224"></location><location id="id7" x="-256" y="240"></location><location id="id8" x="32" y="240"></location><location id="id9" x="120" y="-224"></location><location id="id10" x="64" y="112"></location><location id="id11" x="72" y="-96"></location><location id="id12" x="-80" y="8"></location><location id="id13" x="-504" y="24"><name x="-512" y="-8">enAttente</name></location><init ref="id13"/><transition><source ref="id8"/><target ref="id7"/><label kind="synchronisation" x="-144" y="216">empty?</label></transition><transition><source ref="id7"/><target ref="id13"/><label kind="synchronisation" x="-440" y="137">sortieB[id]!</label><label kind="assignment" x="-440" y="152">validB[id]:=0</label></transition><transition><source ref="id9"/><target ref="id6"/><label kind="synchronisation" x="-104" y="-256">empty?</label></transition><transition><source ref="id6"/><target ref="id13"/><label kind="synchronisation" x="-432" y="-152">sortieA[id]!</label><label kind="assignment" x="-432" y="-136">validA[id]:=0</label></transition><transition><source ref="id10"/><target ref="id8"/><label kind="assignment" x="80" y="152">engageB()</label></transition><transition><source ref="id11"/><target ref="id9"/><label kind="assignment" x="128" y="-176">engageA()</label></transition><transition><source ref="id12"/><target ref="id10"/><label kind="guard" x="0" y="40">last==0</label></transition><transition><source ref="id12"/><target ref="id11"/><label kind="guard" x="0" y="-40">last==1</label></transition><transition><source ref="id13"/><target ref="id10"/><label kind="guard" x="-376" y="96">!AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label></transition><transition><source ref="id13"/><target ref="id11"/><label kind="guard" x="-328" y="-104">AnyRequest(reqOrderA) &amp;&amp; !AnyRequest(reqOrderB)</label></transition><transition><source ref="id13"/><target ref="id12"/><label kind="guard" x="-400" y="16">AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label></transition></template><template><name>P</name><declaration>int Time;</declaration><location id="id14" x="-400" y="-24"><name x="-424" y="-64">EnAttente</name></location><location id="id15" x="-624" y="-88"></location><location id="id16" x="-48" y="-48"><name x="-58" y="-78">Reseting</name></location><location id="id17" x="-280" y="-96"></location><init ref="id14"/><transition><source ref="id15"/><target ref="id14"/><label kind="synchronisation" x="-512" y="-64">empty!</label><nail x="-488" y="-24"/></transition><transition><source ref="id17"/><target ref="id15"/><label kind="guard" x="-568" y="-168">Time &gt; camionSurPont</label><nail x="-488" y="-144"/></transition><transition><source ref="id14"/><target ref="id16"/><label kind="select" x="-232" y="-8">e : int</label><label kind="synchronisation" x="-232" y="8">entreB[e]?</label><nail x="-200" y="48"/></transition><transition><source ref="id16"/><target ref="id17"/><label kind="assignment" x="-176" y="-136">Time:=0</label><nail x="-144" y="-104"/></transition><transition><source ref="id14"/><target ref="id16"/><label kind="select" x="-224" y="-80">e : int</label><label kind="synchronisation" x="-224" y="-64">entreA[e]?</label><nail x="-160" y="-40"/></transition><transition><source ref="id17"/><target ref="id17"/><label kind="assignment" x="-360" y="-232">Time++</label><nail x="-388" y="-208"/><nail x="-284" y="-208"/></transition></template><template><name>RequestManager</name><declaration>// Put an element at the end of the queue
+void enqueueA(int element)
+{
+       reqOrderA[reqOrderALen++] = element;
+}
+
+void enqueueB(int element)
+{
+       reqOrderB[reqOrderBLen++] = element;
+}</declaration><location id="id18" x="-952" y="-344"></location><init ref="id18"/><transition><source ref="id18"/><target ref="id18"/><label kind="select" x="-936" y="-288">e : id_t</label><label kind="synchronisation" x="-936" y="-272">reqB[e]?</label><label kind="assignment" x="-936" y="-256">enqueueB(e)</label><nail x="-964" y="-185"/><nail x="-1080" y="-288"/></transition><transition><source ref="id18"/><target ref="id18"/><label kind="select" x="-1008" y="-432">e : id_t</label><label kind="synchronisation" x="-1008" y="-416">reqA[e]?</label><label kind="assignment" x="-1040" y="-400">enqueueA(e)</label><nail x="-816" y="-384"/><nail x="-952" y="-472"/></transition></template><system>// Place template instantiations here.
+DirectionA1 = CAA(2,0);
+DirectionB1 = CAB(3,0);
+
+DirectionA2 = CAA(4,1);
+DirectionB2 = CAB(5,1);
+
+DirectionA3 = CAA(6,2);
+DirectionB3 = CAB(7,2);
+
 ControleurPont = CTRLP();
 Pont = P();
 
+RequestManager1 = RequestManager();
+
 // List one or more processes to be composed into a system.
-system DirectionA, DirectionB, ControleurPont, Pont;</system></nta>
+system DirectionA1, DirectionB1, DirectionA2, DirectionB2, DirectionA3, DirectionB3, ControleurPont, Pont, RequestManager1;</system></nta>
