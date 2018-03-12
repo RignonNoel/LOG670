@@ -13,12 +13,12 @@ A[] (DirectionA1.SurPont || DirectionA2.SurPont || DirectionA3.SurPont) imply no
 /*
 P3 : Le pont est juste et \u00e9quitable (= \u00ab fair \u00bb).
 */
-(DirectionA1.SurPont || DirectionA2.SurPont || DirectionA3.SurPont) --> (DirectionB1.SurPont || DirectionB2.SurPont || DirectionB2.SurPont)
+//NO_QUERY
 
 /*
 P4 : Un convoi qui arrive est certain de passer sur le pont \u00e0 l\u2019issue d\u2019une dur\u00e9e born\u00e9e.
 */
-//NO_QUERY
+A[] not ((DirectionA1.EnAttente and DirectionA1.tempsAttente > TEMPSATTENTEMAX) || (DirectionB1.EnAttente and DirectionB1.tempsAttente > TEMPSATTENTEMAX))
 
 /*
 P5 : Lorsqu'un convoi entre sur le pont, il en ressort.
