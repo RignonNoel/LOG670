@@ -22,6 +22,28 @@ A[] (DirectionA1.SurPont || DirectionA2.SurPont || DirectionA3.SurPont) imply no
 
 ## P3 : Le pont est juste et équitable (= « fair »).
 
+Pour valider que le systeme est equitable on valide le fait que si un convoi de la direction A passe, alors un convoi de la direction B va passer dans le futur. (les requetes sont infini, donc on valide le fait qu'elle sera accepte)
+
+**erreur**: Ce verifieur ne fonctionne malheuresement pas.
+
+```
+DirectionA1.SurPont --> DirectionB1 --> SurPont
+```
+
 ## P4 : Un convoi qui arrive est certain de passer sur le pont à l’issue d’une durée bornée.
 
+On valide que chaque convoi en attente ne l'es pas depuis plus longtemps que le temps max defini dans notre constante.
+
+**erreur**: Ce verifieur ne fonctionne malheuresement pas. Nous avons une deadlock si nous mettons l'invariant dans les templates CAA et CBB. Cependant ce verifieur fonctionne si nous mettons l'invariant, et ce malgre la deadlock.
+
+```
+A[] not ((DirectionA1.EnAttente and DirectionA1.tempsAttente > TEMPSATTENTEMAX) || (DirectionB1.EnAttente and DirectionB1.tempsAttente > TEMPSATTENTEMAX))
+```
+
 ## P5 : Lorsqu'un convoi entre sur le pont, il en ressort.
+
+Nous verifions que si un convoi entre sur le pont il en ressort. Cette verification est importante puisque nous complexifie le modele sur cette partie en admetant le pont comme une ressource qui ce libere elle meme.
+
+```
+Pont.ConvoiSurPont --> Pont.Sortie
+```
