@@ -47,66 +47,66 @@ empty;
 		<name x="5" y="5">CAA</name>
 		<parameter>int nbCamion, int index</parameter>
 		<declaration>clock tempsAttente;</declaration>
-		<location id="id0" x="-80" y="-280">
-			<name x="-56" y="-280">SurPont</name>
+		<location id="id0" x="-482" y="-446">
+			<name x="-458" y="-446">SurPont</name>
 		</location>
-		<location id="id1" x="-80" y="-472">
-			<name x="-48" y="-496">EnAttente</name>
+		<location id="id1" x="-482" y="-638">
+			<name x="-450" y="-662">EnAttente</name>
 		</location>
-		<location id="id2" x="-560" y="-472">
-			<name x="-592" y="-512">EnTransit</name>
+		<location id="id2" x="-962" y="-638">
+			<name x="-994" y="-678">EnTransit</name>
 		</location>
 		<init ref="id2"/>
 		<transition>
 			<source ref="id2"/>
 			<target ref="id1"/>
-			<label kind="synchronisation" x="-320" y="-504">reqA[index]!</label>
-			<label kind="assignment" x="-352" y="-520">tempsAttente := 0</label>
+			<label kind="synchronisation" x="-722" y="-670">reqA[index]!</label>
+			<label kind="assignment" x="-754" y="-686">tempsAttente := 0</label>
 		</transition>
 		<transition>
 			<source ref="id0"/>
 			<target ref="id2"/>
-			<label kind="synchronisation" x="-368" y="-352">sortieA[index]?</label>
+			<label kind="synchronisation" x="-770" y="-518">sortieA[index]?</label>
 		</transition>
 		<transition>
 			<source ref="id1"/>
 			<target ref="id0"/>
-			<label kind="guard" x="-48" y="-400">validA[index]==1</label>
-			<label kind="synchronisation" x="-48" y="-376">entreA[index]!</label>
-			<label kind="assignment" x="-48" y="-352">camionSurPont :=nbCamion</label>
+			<label kind="guard" x="-450" y="-566">validA[index]==1</label>
+			<label kind="synchronisation" x="-450" y="-542">entreA[index]!</label>
+			<label kind="assignment" x="-450" y="-518">camionSurPont :=nbCamion</label>
 		</transition>
 	</template>
 	<template>
 		<name>CAB</name>
 		<parameter>int nbCamion, int index</parameter>
 		<declaration>clock tempsAttente;</declaration>
-		<location id="id3" x="-184" y="-144">
-			<name x="-144" y="-168">SurPont</name>
+		<location id="id3" x="-550" y="-285">
+			<name x="-510" y="-309">SurPont</name>
 		</location>
-		<location id="id4" x="-184" y="-336">
-			<name x="-152" y="-360">EnAttente</name>
+		<location id="id4" x="-550" y="-477">
+			<name x="-518" y="-501">EnAttente</name>
 		</location>
-		<location id="id5" x="-664" y="-336">
-			<name x="-696" y="-376">EnTransit</name>
+		<location id="id5" x="-1030" y="-477">
+			<name x="-1062" y="-517">EnTransit</name>
 		</location>
 		<init ref="id5"/>
 		<transition>
 			<source ref="id5"/>
 			<target ref="id4"/>
-			<label kind="synchronisation" x="-440" y="-360">reqB[index]!</label>
-			<label kind="assignment" x="-472" y="-376">tempsAttente := 0</label>
+			<label kind="synchronisation" x="-806" y="-501">reqB[index]!</label>
+			<label kind="assignment" x="-838" y="-517">tempsAttente := 0</label>
 		</transition>
 		<transition>
 			<source ref="id3"/>
 			<target ref="id5"/>
-			<label kind="synchronisation" x="-496" y="-232">sortieB[index]?</label>
+			<label kind="synchronisation" x="-862" y="-373">sortieB[index]?</label>
 		</transition>
 		<transition>
 			<source ref="id4"/>
 			<target ref="id3"/>
-			<label kind="guard" x="-152" y="-264">validB[index]==1</label>
-			<label kind="synchronisation" x="-152" y="-240">entreB[index]!</label>
-			<label kind="assignment" x="-152" y="-216">camionSurPont :=nbCamion</label>
+			<label kind="guard" x="-518" y="-405">validB[index]==1</label>
+			<label kind="synchronisation" x="-518" y="-381">entreB[index]!</label>
+			<label kind="assignment" x="-518" y="-357">camionSurPont :=nbCamion</label>
 		</transition>
 	</template>
 	<template>
@@ -186,154 +186,155 @@ void engageB()
 		directionTimer = 0;
 	}
 }</declaration>
-		<location id="id6" x="-16" y="16">
-			<name x="-64" y="32">ValidateTimer</name>
+		<location id="id6" x="-241" y="-9">
+			<name x="-289" y="7">ValidateTimer</name>
 		</location>
-		<location id="id7" x="320" y="8">
-			<name x="344" y="0">ChooseNextDirection</name>
+		<location id="id7" x="95" y="-17">
+			<name x="119" y="-25">ChooseNextDirection</name>
 		</location>
-		<location id="id8" x="-264" y="-208">
-			<name x="-280" y="-240">ASortie</name>
+		<location id="id8" x="-489" y="-233">
+			<name x="-505" y="-265">ASortie</name>
 		</location>
-		<location id="id9" x="-256" y="240">
-			<name x="-272" y="200">BSortie</name>
+		<location id="id9" x="-481" y="215">
+			<name x="-497" y="175">BSortie</name>
 		</location>
-		<location id="id10" x="32" y="240">
-			<name x="24" y="256">BSurPont</name>
+		<location id="id10" x="-193" y="215">
+			<name x="-201" y="231">BSurPont</name>
 		</location>
-		<location id="id11" x="96" y="-208">
-			<name x="86" y="-238">ASurPont</name>
+		<location id="id11" x="-129" y="-233">
+			<name x="-139" y="-263">ASurPont</name>
 		</location>
-		<location id="id12" x="160" y="184">
-			<name x="184" y="184">BEntre</name>
+		<location id="id12" x="-65" y="159">
+			<name x="-41" y="159">BEntre</name>
 		</location>
-		<location id="id13" x="256" y="-184">
-			<name x="280" y="-200">AEntre</name>
+		<location id="id13" x="31" y="-209">
+			<name x="55" y="-225">AEntre</name>
 		</location>
-		<location id="id14" x="-504" y="24">
-			<name x="-568" y="-16">EnAttente</name>
+		<location id="id14" x="-729" y="-1">
+			<name x="-793" y="-41">EnAttente</name>
 		</location>
 		<init ref="id14"/>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id7"/>
-			<label kind="guard" x="112" y="56">directionTimer &lt;= 100</label>
-			<nail x="184" y="48"/>
+			<label kind="guard" x="-113" y="31">directionTimer &lt;= 100</label>
+			<nail x="-41" y="23"/>
 		</transition>
 		<transition>
 			<source ref="id6"/>
 			<target ref="id7"/>
-			<label kind="guard" x="48" y="-56">directionTimer &gt; 100</label>
-			<label kind="assignment" x="48" y="-32">direction = !direction,
+			<label kind="guard" x="-177" y="-81">directionTimer &gt; 100</label>
+			<label kind="assignment" x="-177" y="-57">direction = !direction,
 directionTimer = 0</label>
-			<nail x="-8" y="16"/>
+			<nail x="-233" y="-9"/>
 		</transition>
 		<transition>
 			<source ref="id10"/>
 			<target ref="id9"/>
-			<label kind="synchronisation" x="-144" y="216">empty?</label>
+			<label kind="synchronisation" x="-369" y="191">empty?</label>
 		</transition>
 		<transition>
 			<source ref="id9"/>
 			<target ref="id14"/>
-			<label kind="synchronisation" x="-440" y="137">sortieB[id]!</label>
-			<label kind="assignment" x="-440" y="152">validB[id]:=0</label>
+			<label kind="synchronisation" x="-665" y="112">sortieB[id]!</label>
+			<label kind="assignment" x="-665" y="127">validB[id]:=0</label>
 		</transition>
 		<transition>
 			<source ref="id11"/>
 			<target ref="id8"/>
-			<label kind="synchronisation" x="-104" y="-240">empty?</label>
+			<label kind="synchronisation" x="-329" y="-265">empty?</label>
 		</transition>
 		<transition>
 			<source ref="id8"/>
 			<target ref="id14"/>
-			<label kind="synchronisation" x="-432" y="-152">sortieA[id]!</label>
-			<label kind="assignment" x="-432" y="-136">validA[id]:=0</label>
+			<label kind="synchronisation" x="-657" y="-177">sortieA[id]!</label>
+			<label kind="assignment" x="-657" y="-161">validA[id]:=0</label>
 		</transition>
 		<transition>
 			<source ref="id12"/>
 			<target ref="id10"/>
-			<label kind="assignment" x="80" y="224">engageB()</label>
+			<label kind="assignment" x="-145" y="199">engageB()</label>
 		</transition>
 		<transition>
 			<source ref="id13"/>
 			<target ref="id11"/>
-			<label kind="assignment" x="160" y="-224">engageA()</label>
+			<label kind="assignment" x="-65" y="-249">engageA()</label>
 		</transition>
 		<transition>
 			<source ref="id7"/>
 			<target ref="id12"/>
-			<label kind="guard" x="248" y="112">!direction</label>
+			<label kind="guard" x="23" y="87">!direction</label>
 		</transition>
 		<transition>
 			<source ref="id7"/>
 			<target ref="id13"/>
-			<label kind="guard" x="320" y="-104">direction</label>
+			<label kind="guard" x="95" y="-129">direction</label>
 		</transition>
 		<transition>
 			<source ref="id14"/>
 			<target ref="id12"/>
-			<label kind="guard" x="-312" y="128">!AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label>
+			<label kind="guard" x="-537" y="103">!AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label>
 		</transition>
 		<transition>
 			<source ref="id14"/>
 			<target ref="id13"/>
-			<label kind="guard" x="-288" y="-136">AnyRequest(reqOrderA) &amp;&amp; !AnyRequest(reqOrderB)</label>
+			<label kind="guard" x="-513" y="-161">AnyRequest(reqOrderA) &amp;&amp; !AnyRequest(reqOrderB)</label>
 		</transition>
 		<transition>
 			<source ref="id14"/>
 			<target ref="id6"/>
-			<label kind="guard" x="-368" y="0">AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label>
+			<label kind="guard" x="-593" y="-25">AnyRequest(reqOrderA) &amp;&amp; AnyRequest(reqOrderB)</label>
 		</transition>
 	</template>
 	<template>
 		<name>P</name>
 		<declaration>// Horloge utilise pour la traverse du pont
 </declaration>
-		<location id="id15" x="-312" y="144">
-			<name x="-336" y="104">EnAttente</name>
+		<location id="id15" x="-1099" y="-857">
+			<name x="-1123" y="-897">EnAttente</name>
 		</location>
-		<location id="id16" x="-496" y="56">
-			<name x="-528" y="16">Sortie</name>
+		<location id="id16" x="-1283" y="-945">
+			<name x="-1315" y="-985">Sortie</name>
 		</location>
-		<location id="id17" x="24" y="88">
-			<name x="14" y="58">Reseting</name>
+		<location id="id17" x="-763" y="-913">
+			<name x="-773" y="-943">Reseting</name>
 		</location>
-		<location id="id18" x="-200" y="-8">
-			<name x="-232" y="-48">ConvoiSurPont</name>
+		<location id="id18" x="-987" y="-1009">
+			<name x="-1019" y="-1049">ConvoiSurPont</name>
+			<label kind="invariant" x="-1011" y="-993">Time &lt; 120</label>
 		</location>
 		<init ref="id15"/>
 		<transition>
 			<source ref="id16"/>
 			<target ref="id15"/>
-			<label kind="synchronisation" x="-416" y="72">empty!</label>
-			<nail x="-392" y="112"/>
+			<label kind="synchronisation" x="-1203" y="-929">empty!</label>
+			<nail x="-1179" y="-889"/>
 		</transition>
 		<transition>
 			<source ref="id18"/>
 			<target ref="id16"/>
-			<label kind="guard" x="-432" y="-32">Time &gt; 10 * camionSurPont</label>
-			<nail x="-384" y="-8"/>
+			<label kind="guard" x="-1219" y="-1033">Time &gt; 10 * camionSurPont</label>
+			<nail x="-1171" y="-1009"/>
 		</transition>
 		<transition>
 			<source ref="id15"/>
 			<target ref="id17"/>
-			<label kind="select" x="-136" y="128">e : id_t</label>
-			<label kind="synchronisation" x="-136" y="144">entreB[e]?</label>
-			<nail x="-104" y="184"/>
+			<label kind="select" x="-923" y="-873">e : id_t</label>
+			<label kind="synchronisation" x="-923" y="-857">entreB[e]?</label>
+			<nail x="-891" y="-817"/>
 		</transition>
 		<transition>
 			<source ref="id17"/>
 			<target ref="id18"/>
-			<label kind="assignment" x="-80" y="0">Time:=0</label>
-			<nail x="-48" y="32"/>
+			<label kind="assignment" x="-867" y="-1001">Time:=0</label>
+			<nail x="-835" y="-969"/>
 		</transition>
 		<transition>
 			<source ref="id15"/>
 			<target ref="id17"/>
-			<label kind="select" x="-128" y="56">e : id_t</label>
-			<label kind="synchronisation" x="-128" y="72">entreA[e]?</label>
-			<nail x="-64" y="96"/>
+			<label kind="select" x="-915" y="-945">e : id_t</label>
+			<label kind="synchronisation" x="-915" y="-929">entreA[e]?</label>
+			<nail x="-851" y="-905"/>
 		</transition>
 	</template>
 	<template>
@@ -349,27 +350,27 @@ void enqueueB(int element)
 {
        reqOrderB[reqOrderBLen++] = element;
 }</declaration>
-		<location id="id19" x="-952" y="-344">
+		<location id="id19" x="-1280" y="-1044">
 		</location>
 		<init ref="id19"/>
 		<transition>
 			<source ref="id19"/>
 			<target ref="id19"/>
-			<label kind="select" x="-1112" y="-232">e : id_t</label>
-			<label kind="synchronisation" x="-1112" y="-216">reqB[e]?</label>
-			<label kind="assignment" x="-1112" y="-200">enqueueB(e)</label>
-			<nail x="-964" y="-185"/>
-			<nail x="-1096" y="-304"/>
+			<label kind="select" x="-1440" y="-932">e : id_t</label>
+			<label kind="synchronisation" x="-1440" y="-916">reqB[e]?</label>
+			<label kind="assignment" x="-1440" y="-900">enqueueB(e)</label>
+			<nail x="-1292" y="-885"/>
+			<nail x="-1424" y="-1004"/>
 		</transition>
 		<transition>
 			<source ref="id19"/>
 			<target ref="id19"/>
-			<label kind="select" x="-864" y="-488">e : id_t</label>
-			<label kind="synchronisation" x="-864" y="-472">reqA[e]?</label>
-			<label kind="assignment" x="-896" y="-456">enqueueA(e)</label>
-			<nail x="-816" y="-384"/>
-			<nail x="-952" y="-472"/>
-			<nail x="-992" y="-456"/>
+			<label kind="select" x="-1192" y="-1188">e : id_t</label>
+			<label kind="synchronisation" x="-1192" y="-1172">reqA[e]?</label>
+			<label kind="assignment" x="-1224" y="-1156">enqueueA(e)</label>
+			<nail x="-1144" y="-1084"/>
+			<nail x="-1280" y="-1172"/>
+			<nail x="-1320" y="-1156"/>
 		</transition>
 	</template>
 	<system>// Place template instantiations here.
@@ -390,14 +391,14 @@ RequestManager1 = RequestManager();
 // List one or more processes to be composed into a system.
 system DirectionA1, DirectionB1, DirectionA2, DirectionB2, DirectionA3, DirectionB3, Pont, ControleurPont, RequestManager1;
 
- gantt {
-  A1: validA[0] == 1 -&gt; 1;
-  A2: validA[1] == 1 -&gt; 2;
-  A3: validA[2] == 1 -&gt; 3;
-  B1: validB[0] == 1 -&gt; 4;
-  B2: validB[1] == 1 -&gt; 5;
-  B3: validB[2] == 1 -&gt; 6;
- }</system>
+gantt {
+ A1: validA[0] == 1 -&gt; 1;
+ A2: validA[1] == 1 -&gt; 2;
+ A3: validA[2] == 1 -&gt; 3;
+ B1: validB[0] == 1 -&gt; 4;
+ B2: validB[1] == 1 -&gt; 5;
+ B3: validB[2] == 1 -&gt; 6;
+}</system>
 	<queries>
 		<query>
 			<formula>A[] not deadlock
@@ -412,15 +413,15 @@ system DirectionA1, DirectionB1, DirectionA2, DirectionB2, DirectionA3, Directio
 			</comment>
 		</query>
 		<query>
-			<formula>DirectionA1.EnAttente --&gt; DirectionA1.SurPont
+			<formula>DirectionA1.SurPont --&gt; DirectionB2.SurPont
 			</formula>
-			<comment>P3 : Le pont est juste et équitable (= « fair »). ( Devrais etre tester sur toute les directions)
+			<comment>P3 : Le pont est juste et équitable (= « fair »).
 			</comment>
 		</query>
 		<query>
 			<formula>A[] not ((DirectionA1.EnAttente and DirectionA1.tempsAttente &gt; TEMPSATTENTEMAX) || (DirectionB1.EnAttente and DirectionB1.tempsAttente &gt; TEMPSATTENTEMAX))
 			</formula>
-			<comment>P4 : Un convoi qui arrive est certain de passer sur le pont à l’issue d’une durée bornée. (Devrais etre tester sur toute les directions)
+			<comment>P4 : Un convoi qui arrive est certain de passer sur le pont à l’issue d’une durée bornée.
 			</comment>
 		</query>
 		<query>
