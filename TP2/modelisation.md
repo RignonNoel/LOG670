@@ -11,9 +11,9 @@ Ces deux templates sont très similaires et ne changent que par leurs noms de va
 ![Convoi en direction de A](images/A.png)
 ![Convoi en direction de B](images/B.png)
 
-##### État du modelé
+##### État du modele
 
-Pour des raisons de simplification du modelé, nos convois ne disposent que de 3 états :
+Pour des raisons de simplification du modele, nos convois ne disposent que de 3 états :
 
  - EnTransit : Le convoi est en chemin vers le pont
  - EnAttente : Le convoi attend de pouvoir passer sur le pont
