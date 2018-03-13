@@ -2,6 +2,21 @@
 
 # Verification
 
+## Gantt
+
+Voici notre diagramme de gantt representant les droits de passage actifs pour chaque convois.
+![Gantt](images/gantt.PNG)
+
+```
+gantt {
+ A1: validA[0] == 1 -&gt; 1;
+ A2: validA[1] == 1 -&gt; 2;
+ A3: validA[2] == 1 -&gt; 3;
+ B1: validB[0] == 1 -&gt; 4;
+ B2: validB[1] == 1 -&gt; 5;
+ B3: validB[2] == 1 -&gt; 6;
+}
+```
 ## P1 : Il n’y a pas de « deadlock »
 
 On verifie qu'il n'y ai pas de deadlock, c'est a dire qu'il n'existe aucun cas possible ou le systeme ce retrouve dans un etat bloquant sans etape suivante.
