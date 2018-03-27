@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
+<net id="Net-One" type="P/T net">
+<token id="Default" enabled="true" red="0" green="0" blue="0"/>
+<place id="camions">
+<graphics>
+<position x="645.0" y="270.0"/>
+</graphics>
+<name>
+<value>camions</value>
+<graphics>
+<offset x="32.0" y="-11.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="camions sans capots">
+<graphics>
+<position x="900.0" y="390.0"/>
+</graphics>
+<name>
+<value>camions sans capots</value>
+<graphics>
+<offset x="51.0" y="-24.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,2</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="capot_camion_en_cours">
+<graphics>
+<position x="1290.0" y="390.0"/>
+</graphics>
+<name>
+<value>capot_camion_en_cours</value>
+<graphics>
+<offset x="114.0" y="-22.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="capot_suv_en_cours">
+<graphics>
+<position x="1290.0" y="510.0"/>
+</graphics>
+<name>
+<value>capot_suv_en_cours</value>
+<graphics>
+<offset x="104.0" y="49.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="capots_camion">
+<graphics>
+<position x="1230.0" y="285.0"/>
+</graphics>
+<name>
+<value>capots_camion</value>
+<graphics>
+<offset x="56.0" y="-8.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="capots_suv">
+<graphics>
+<position x="1245.0" y="600.0"/>
+</graphics>
+<name>
+<value>capots_suv</value>
+<graphics>
+<offset x="40.0" y="52.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="entrepot camion">
+<graphics>
+<position x="1500.0" y="390.0"/>
+</graphics>
+<name>
+<value>entrepot camion</value>
+<graphics>
+<offset x="122.0" y="16.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,178</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="entrepot suv">
+<graphics>
+<position x="1500.0" y="510.0"/>
+</graphics>
+<name>
+<value>entrepot suv</value>
+<graphics>
+<offset x="103.0" y="16.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,178</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="materiel_brut_camion">
+<graphics>
+<position x="570.0" y="270.0"/>
+</graphics>
+<name>
+<value>materiel_brut_camion</value>
+<graphics>
+<offset x="43.0" y="-14.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="materiel_brut_suv">
+<graphics>
+<position x="570.0" y="630.0"/>
+</graphics>
+<name>
+<value>materiel_brut_suv</value>
+<graphics>
+<offset x="40.0" y="52.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="moteur_camion_en_cours">
+<graphics>
+<position x="660.0" y="390.0"/>
+</graphics>
+<name>
+<value>moteur_camion_en_cours</value>
+<graphics>
+<offset x="129.0" y="42.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="moteur_suv_en_cours">
+<graphics>
+<position x="660.0" y="510.0"/>
+</graphics>
+<name>
+<value>moteur_suv_en_cours</value>
+<graphics>
+<offset x="115.0" y="-8.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P11">
+<graphics>
+<position x="1065.0" y="390.0"/>
+</graphics>
+<name>
+<value>P11</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P12">
+<graphics>
+<position x="1065.0" y="510.0"/>
+</graphics>
+<name>
+<value>P12</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P17">
+<graphics>
+<position x="420.0" y="390.0"/>
+</graphics>
+<name>
+<value>P17</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P18">
+<graphics>
+<position x="420.0" y="510.0"/>
+</graphics>
+<name>
+<value>P18</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="P19">
+<graphics>
+<position x="945.0" y="450.0"/>
+</graphics>
+<name>
+<value>P19</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,4</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="palettes">
+<graphics>
+<position x="165.0" y="435.0"/>
+</graphics>
+<name>
+<value>palettes</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,6</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>6</value>
+</capacity>
+</place>
+<place id="SUVs">
+<graphics>
+<position x="645.0" y="630.0"/>
+</graphics>
+<name>
+<value>SUVs</value>
+<graphics>
+<offset x="30.0" y="49.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="SUVs sans capots">
+<graphics>
+<position x="900.0" y="510.0"/>
+</graphics>
+<name>
+<value>SUVs sans capots</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,2</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<transition id="debut_capot_camion">
+<graphics>
+<position x="1170.0" y="390.0"/>
+</graphics>
+<name>
+<value>debut_capot_camion</value>
+<graphics>
+<offset x="113.0" y="38.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="debut_capot_suv">
+<graphics>
+<position x="1170.0" y="510.0"/>
+</graphics>
+<name>
+<value>debut_capot_suv</value>
+<graphics>
+<offset x="93.0" y="-7.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="debut_moteur_camion">
+<graphics>
+<position x="525.0" y="390.0"/>
+</graphics>
+<name>
+<value>debut_moteur_camion</value>
+<graphics>
+<offset x="123.0" y="49.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="debut_moteur_suv">
+<graphics>
+<position x="525.0" y="510.0"/>
+</graphics>
+<name>
+<value>debut_moteur_suv</value>
+<graphics>
+<offset x="101.0" y="-18.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="fin_capot_camion">
+<graphics>
+<position x="1410.0" y="390.0"/>
+</graphics>
+<name>
+<value>fin_capot_camion</value>
+<graphics>
+<offset x="107.0" y="-13.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="fin_capot_suv">
+<graphics>
+<position x="1410.0" y="510.0"/>
+</graphics>
+<name>
+<value>fin_capot_suv</value>
+<graphics>
+<offset x="91.0" y="52.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="fin_moteur_camion">
+<graphics>
+<position x="780.0" y="390.0"/>
+</graphics>
+<name>
+<value>fin_moteur_camion</value>
+<graphics>
+<offset x="17.0" y="-8.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="fin_moteur_suv">
+<graphics>
+<position x="780.0" y="510.0"/>
+</graphics>
+<name>
+<value>fin_moteur_suv</value>
+<graphics>
+<offset x="13.0" y="49.0"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<arc id="camions sans capots to debut_capot_camion" source="camions sans capots" target="debut_capot_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="924" y="393" curvePoint="false"/>
+<arcpath id="001" x="1092" y="282" curvePoint="false"/>
+<arcpath id="002" x="1177" y="396" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="camions to debut_moteur_camion" source="camions" target="debut_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="646" y="292" curvePoint="false"/>
+<arcpath id="001" x="542" y="399" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="capot_camion_en_cours to fin_capot_camion" source="capot_camion_en_cours" target="fin_capot_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1316" y="402" curvePoint="false"/>
+<arcpath id="001" x="1416" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="capot_suv_en_cours to fin_capot_suv" source="capot_suv_en_cours" target="fin_capot_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1316" y="522" curvePoint="false"/>
+<arcpath id="001" x="1416" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_camion to capot_camion_en_cours" source="debut_capot_camion" target="capot_camion_en_cours">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1186" y="407" curvePoint="false"/>
+<arcpath id="001" x="1287" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_camion to capots_camion" source="debut_capot_camion" target="capots_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1187" y="397" curvePoint="false"/>
+<arcpath id="001" x="1227" y="357" curvePoint="false"/>
+<arcpath id="002" x="1238" y="311" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_camion to P19" source="debut_capot_camion" target="P19">
+<graphics/>
+<inscription>
+<value>Default,2</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1176" y="403" curvePoint="false"/>
+<arcpath id="001" x="1077" y="342" curvePoint="false"/>
+<arcpath id="002" x="967" y="451" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_suv to capot_suv_en_cours" source="debut_capot_suv" target="capot_suv_en_cours">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1187" y="514" curvePoint="false"/>
+<arcpath id="001" x="1287" y="520" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_suv to capots_suv" source="debut_capot_suv" target="capots_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1187" y="521" curvePoint="false"/>
+<arcpath id="001" x="1227" y="552" curvePoint="false"/>
+<arcpath id="002" x="1250" y="598" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_capot_suv to P19" source="debut_capot_suv" target="P19">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1176" y="523" curvePoint="false"/>
+<arcpath id="001" x="1077" y="582" curvePoint="false"/>
+<arcpath id="002" x="967" y="472" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_camion to camions" source="debut_moteur_camion" target="camions">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="541" y="405" curvePoint="false"/>
+<arcpath id="001" x="627" y="342" curvePoint="false"/>
+<arcpath id="002" x="650" y="295" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_camion to materiel_brut_camion" source="debut_moteur_camion" target="materiel_brut_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="537" y="387" curvePoint="false"/>
+<arcpath id="001" x="576" y="295" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_camion to moteur_camion_en_cours" source="debut_moteur_camion" target="moteur_camion_en_cours">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="541" y="411" curvePoint="false"/>
+<arcpath id="001" x="657" y="403" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_suv to materiel_brut_suv" source="debut_moteur_suv" target="materiel_brut_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="537" y="537" curvePoint="false"/>
+<arcpath id="001" x="567" y="582" curvePoint="false"/>
+<arcpath id="002" x="578" y="627" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_suv to moteur_suv_en_cours" source="debut_moteur_suv" target="moteur_suv_en_cours">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="542" y="514" curvePoint="false"/>
+<arcpath id="001" x="657" y="521" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="debut_moteur_suv to SUVs" source="debut_moteur_suv" target="SUVs">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="542" y="521" curvePoint="false"/>
+<arcpath id="001" x="612" y="567" curvePoint="false"/>
+<arcpath id="002" x="649" y="629" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_camion to entrepot camion" source="fin_capot_camion" target="entrepot camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1426" y="402" curvePoint="false"/>
+<arcpath id="001" x="1497" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_camion to P12" source="fin_capot_camion" target="P12">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1422" y="417" curvePoint="false"/>
+<arcpath id="001" x="1422" y="447" curvePoint="false"/>
+<arcpath id="002" x="1137" y="447" curvePoint="false"/>
+<arcpath id="003" x="1086" y="510" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_camion to palettes" source="fin_capot_camion" target="palettes">
+<graphics/>
+<inscription>
+<value>Default,2</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1422" y="387" curvePoint="false"/>
+<arcpath id="001" x="1422" y="192" curvePoint="false"/>
+<arcpath id="002" x="177" y="192" curvePoint="false"/>
+<arcpath id="003" x="177" y="432" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_suv to entrepot suv" source="fin_capot_suv" target="entrepot suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1426" y="522" curvePoint="false"/>
+<arcpath id="001" x="1497" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_suv to P11" source="fin_capot_suv" target="P11">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1422" y="507" curvePoint="false"/>
+<arcpath id="001" x="1422" y="492" curvePoint="false"/>
+<arcpath id="002" x="1137" y="492" curvePoint="false"/>
+<arcpath id="003" x="1085" y="414" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_capot_suv to palettes" source="fin_capot_suv" target="palettes">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1422" y="537" curvePoint="false"/>
+<arcpath id="001" x="1422" y="747" curvePoint="false"/>
+<arcpath id="002" x="177" y="732" curvePoint="false"/>
+<arcpath id="003" x="177" y="462" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_moteur_camion to camions sans capots" source="fin_moteur_camion" target="camions sans capots">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="797" y="397" curvePoint="false"/>
+<arcpath id="001" x="897" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_moteur_camion to P18" source="fin_moteur_camion" target="P18">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="792" y="417" curvePoint="false"/>
+<arcpath id="001" x="792" y="447" curvePoint="false"/>
+<arcpath id="002" x="477" y="447" curvePoint="false"/>
+<arcpath id="003" x="439" y="509" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_moteur_suv to P17" source="fin_moteur_suv" target="P17">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="792" y="507" curvePoint="false"/>
+<arcpath id="001" x="792" y="477" curvePoint="false"/>
+<arcpath id="002" x="477" y="477" curvePoint="false"/>
+<arcpath id="003" x="439" y="414" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="fin_moteur_suv to SUVs sans capots" source="fin_moteur_suv" target="SUVs sans capots">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="796" y="527" curvePoint="false"/>
+<arcpath id="001" x="897" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="materiel_brut_camion to debut_moteur_camion" source="materiel_brut_camion" target="debut_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="582" y="297" curvePoint="false"/>
+<arcpath id="001" x="582" y="327" curvePoint="false"/>
+<arcpath id="002" x="542" y="393" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="materiel_brut_suv to debut_moteur_suv" source="materiel_brut_suv" target="debut_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="576" y="628" curvePoint="false"/>
+<arcpath id="001" x="537" y="537" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="moteur_camion_en_cours to fin_moteur_camion" source="moteur_camion_en_cours" target="fin_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="686" y="402" curvePoint="false"/>
+<arcpath id="001" x="786" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P11 to T3" source="P11" target="debut_capot_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1091" y="402" curvePoint="false"/>
+<arcpath id="001" x="1176" y="410" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P12 to T2" source="P12" target="debut_capot_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1091" y="521" curvePoint="false"/>
+<arcpath id="001" x="1177" y="516" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P15 to T2" source="capots_suv" target="debut_capot_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1247" y="600" curvePoint="false"/>
+<arcpath id="001" x="1186" y="528" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P17 to debut_moteur_camion" source="P17" target="debut_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="446" y="402" curvePoint="false"/>
+<arcpath id="001" x="531" y="402" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P18 to debut_moteur_suv" source="P18" target="debut_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="446" y="522" curvePoint="false"/>
+<arcpath id="001" x="531" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P19 to fin_moteur_camion" source="P19" target="fin_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,2</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="942" y="457" curvePoint="false"/>
+<arcpath id="001" x="796" y="407" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P19 to fin_moteur_suv" source="P19" target="fin_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="942" y="466" curvePoint="false"/>
+<arcpath id="001" x="797" y="517" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P19 to T6" source="moteur_suv_en_cours" target="fin_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="686" y="522" curvePoint="false"/>
+<arcpath id="001" x="786" y="522" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="P9 to T3" source="capots_camion" target="debut_capot_camion">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="1233" y="309" curvePoint="false"/>
+<arcpath id="001" x="1182" y="387" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="palettes to debut_moteur_camion" source="palettes" target="debut_moteur_camion">
+<graphics/>
+<inscription>
+<value>Default,2</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="190" y="440" curvePoint="false"/>
+<arcpath id="001" x="372" y="357" curvePoint="false"/>
+<arcpath id="002" x="537" y="282" curvePoint="false"/>
+<arcpath id="003" x="537" y="387" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="palettes to debut_moteur_suv" source="palettes" target="debut_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="190" y="454" curvePoint="false"/>
+<arcpath id="001" x="537" y="642" curvePoint="false"/>
+<arcpath id="002" x="537" y="537" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="SUVs sans capots to debut_capot_suv" source="SUVs sans capots" target="debut_capot_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="924" y="530" curvePoint="false"/>
+<arcpath id="001" x="1092" y="642" curvePoint="false"/>
+<arcpath id="002" x="1176" y="530" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="SUVs to debut_moteur_suv" source="SUVs" target="debut_moteur_suv">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="646" y="631" curvePoint="false"/>
+<arcpath id="001" x="541" y="528" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+</net>
+</pnml>
