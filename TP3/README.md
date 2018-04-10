@@ -3,4 +3,5 @@
 Voici les differentes pages de ce troisieme laboratoire :
 
  - [Modelisation](modelisation.md)
- - [Verification](verification.md)
+ - [Verification comportementale](verification.md)
+ - [Verification structurelle](VerificationStructurelle.md)
