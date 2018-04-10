@@ -1,6 +1,6 @@
 # MODÉLISATION ET SIMULATION
 
-## Presentation general
+## Presentation generale
 
 Voici notre reseau de Petri lors du lancement de la simulation:
 
