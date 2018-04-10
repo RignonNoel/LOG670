@@ -4,6 +4,8 @@
 
 ## Presentation general
 
+Pour l'analyse des invariants, nous avons du utiliser tina au lieu de  PIPE. Pour ce faire nous avon recree le reseau suivant:
+
 ![simulation](static/tina.PNG)
 
 ## Comportementale
@@ -136,14 +138,8 @@ trans fin_capot_suv/10
 
 ## Structurelle
 
+##### Lanalyse a identifier les T-invariant suivant :
 ```
-Struct version 3.4.4 -- 01/05/16 -- LAAS/CNRS
-
-parsed net petri_tina_1
-
-12 places, 8 transitions
-
-net petri_tina_1
 tr debut_capot_camion p5 p9 -> capot_camion_en_cours p11*2 
 tr debut_capot_suv p10 p6 -> capot_suv_en_cours p11 
 tr debut_moteur_camion p0 palettes*2 -> moteur_camion_en_cours 
@@ -156,31 +152,35 @@ pl p0 (1)
 pl p11 (4)
 pl p9 (1)
 pl palettes (6)
+```
 
-0.000s
+##### Lanalyse a identifier les P-invariant suivant :
 
-P-SEMI-FLOWS GENERATING SET ------------------------------------- 
-
-invariant
-
+Il ne peut pas avoir plus de 1 capot de camion ou de suv en construction à un moment donné.
+```
 capot_camion_en_cours capot_suv_en_cours p10 p9 (1)
+```
+
+Il ne peut pas avoir plus de 1 moteur de camion ou de suv en construction à un moment donné.
+```
+moteur_camion_en_cours moteur_suv_en_cours p0 p1 (1)
+```
+
+Il ne peut pas avoir plus de 4 palete pour les camion en atente de recevoir un capot (positioner entre les deux machines)
+```
 p11 p5*2 p6 (4)
+```
+
+Il n'a jamais plus de 6 palettes en utilisation.
+```
 capot_camion_en_cours*2 capot_suv_en_cours moteur_camion_en_cours*2 moteur_suv_en_cours p5*2 p6 palettes (6)
+```
+
+Les prochain invariant combine les jetton d'action et de palette is son donc moin utile.
+```
 capot_camion_en_cours*3 capot_suv_en_cours moteur_camion_en_cours*3 moteur_suv_en_cours p0 p10 p5*3 palettes (7)
 capot_camion_en_cours*2 capot_suv_en_cours*3 moteur_camion_en_cours*2 moteur_suv_en_cours*3 p1*2 p6*3 p9*2 palettes (8)
-moteur_camion_en_cours moteur_suv_en_cours p0 p1 (1)
 capot_suv_en_cours*2 moteur_suv_en_cours*2 p1*2 p11 p6*3 p9*2 (6)
 capot_camion_en_cours moteur_camion_en_cours p0 p10 p11 p5*3 (5)
 
-0.000s
-
-T-SEMI-FLOWS GENERATING SET ------------------------------------- 
-
-consistent
-
-debut_capot_camion debut_capot_suv debut_moteur_camion debut_moteur_suv fin_capot_camion fin_capot_suv fin_moteur_camion fin_moteur_suv
-
-0.000s
-
-ANALYSIS COMPLETED  --------------------------------------------- 
 ```
