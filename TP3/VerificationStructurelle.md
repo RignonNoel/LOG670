@@ -2,6 +2,8 @@
 
 ## Presentation general
 
+![simulation](static/tina.PNG)
+
 ## Comportementale
 
 ```
