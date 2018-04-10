@@ -4,6 +4,7 @@
 
 ## Comportementale
 
+```
 # Created Tue Apr 10 15:13:46 2018 by TINA version 3.4.4
 
 kts petri_tina
@@ -125,12 +126,13 @@ trans debut_capot_suv/26
 state 26
 props capot_suv_en_cours moteur_camion_en_cours p11 p5 p6
 trans fin_capot_suv/10
-
+```
 
 
 
 ## Structurelle
 
+```
 Struct version 3.4.4 -- 01/05/16 -- LAAS/CNRS
 
 parsed net petri_tina_1
@@ -177,6 +179,4 @@ debut_capot_camion debut_capot_suv debut_moteur_camion debut_moteur_suv fin_capo
 0.000s
 
 ANALYSIS COMPLETED  --------------------------------------------- 
-
-
-
+```
