@@ -2,7 +2,7 @@
 
 # VÉRIFICATION COMPORTEMENTALE
 
-## Graphe d'accessibilite
+## Graphe d'accessibilité
 
 ![graph](static/graph.PNG)
 
@@ -13,14 +13,6 @@ Le graphe d'accessibilite nous permet de faire certaines affirmations sur notre 
  - Il est possibe que le stock de palette libre soit insufisant
  - Il est possible que nous manquions d'espace libre entre les deux robots
 
-Une reflexion sur ce graphe nous permet de 
-constater que les deux dernieres consideration 
-dependent uniquement de la vitesse de 
-fabrication des deux robots, ce dont nous 
-n'avons aucune connaissance dans l'enonce.
+Une réflexion sur ce graphe nous permet de  constater que les deux dernières considérations  dépendent uniquement de la vitesse de  fabrication des deux robots, ce dont nous  n'avons aucune connaissance dans l'énoncé.
 
-Nous pourrions cependant utiliser ces deux 
-considerations pour ouvrir une discussion avec 
-les personnes competentes et voir si l'augmentation 
-du stock ou de l'espace augmenterais le rendement 
-de l'usine.
+Nous pourrions cependant utiliser ces deux  considérations pour ouvrir une discussion avec  les personnes compétentes et voir si l'augmentation  du stock ou de l'espace augmenterait le rendement  de l'usine.
