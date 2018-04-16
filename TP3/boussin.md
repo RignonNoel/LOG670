@@ -2,3 +2,8 @@
 
 # TRANSFORMATION DE BOUSSIN
 
+Voici le resultat optenue apret les transformation de boussin:
+![simulation](static/boussin.PNG)
+
+
+
