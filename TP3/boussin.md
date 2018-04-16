@@ -6,7 +6,7 @@ Voici le resultat optenue apret les transformation de boussin:
 ![simulation](static/boussin.PNG)
 
 
-![simulation](static/boussin2.PNG)
-![simulation](static/boussin3.PNG)
+![simulation](static/boussin2.png)
+![simulation](static/boussin3.png)
 
 
