@@ -2,13 +2,11 @@
 
 # TRANSFORMATION DE BOUSSIN
 
-Voici le resultat optenue apret les transformation de boussin:
+Voici le résultat obtenu après les transformations de Boussin:
 ![simulation](static/boussin.PNG)
 
-Pour arriver a ce resultat nous avons tout dabort suprimer les resouces ilimiter et le stokage.
+Pour arriver à ce résultat, nous avons tout d'abord supprimé les ressources illimitées et le stockage.
 ![simulation](static/boussin2.png)
 
-Par la suite nous avons suprimer les lien suivant a laide des regles 1 et 2 de transformation de boussin. 
+Par la suite nous avons supprimé les liens suivants à l’aide des règles 1 et 2 de transformation de boussin. 
 ![simulation](static/boussin3.png)
-
-
